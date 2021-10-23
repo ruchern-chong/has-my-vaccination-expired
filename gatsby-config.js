@@ -1,5 +1,7 @@
 const { author, description } = require("./package.json");
 
+process.env.TZ = "Asia/Singapore";
+
 module.exports = {
   pathPrefix: "/am-i-still-vaccinated",
   siteMetadata: {

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import dayjs from "dayjs";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+
+import { updateSecondDose } from "../actions/datesActions";
 
 const isSameOrAfter = require("dayjs/plugin/isSameOrAfter");
 const LocalizedFormat = require("dayjs/plugin/localizedFormat");
@@ -26,10 +29,6 @@ const Column = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h1`
-  margin-bottom: 24px;
-`;
-
 const Input = styled.input`
   width: 100%;
   font-size: 18px;
@@ -39,7 +38,7 @@ const Input = styled.input`
   border-radius: 8px;
 `;
 
-const IndexPage = () => {
+const IndexPage = ({ date, updateSecondDose }) => {
   const [expiryDate, setExpiryDate] = useState("2021-12-31");
   const todayDate = new Date().toISOString().split("T")[0];
 
@@ -54,11 +53,16 @@ const IndexPage = () => {
   };
 
   useEffect(() => {
-    setExpiryDate(calculateExpiryDate(todayDate));
+    if (date.dose?.second) {
+      setExpiryDate(calculateExpiryDate(date.dose?.second));
+    } else {
+      setExpiryDate(calculateExpiryDate(todayDate));
+    }
   }, []);
 
   const handleDateChange = (e) => {
     const date = e.target.value;
+    updateSecondDose(date);
 
     setExpiryDate(calculateExpiryDate(date));
   };
@@ -76,6 +80,7 @@ const IndexPage = () => {
                 min="2021-06-18"
                 max={todayDate}
                 defaultValue={todayDate}
+                value={date.dose?.second}
                 onChange={handleDateChange}
               />
             </label>
@@ -90,4 +95,18 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+/* istanbul ignore next */
+const mapStateToProps = (state) => {
+  const { date } = state;
+
+  return {
+    date: date,
+  };
+};
+
+/* istanbul ignore next */
+const mapDispatchToProps = (dispatch) => ({
+  updateSecondDose: (options) => dispatch(updateSecondDose(options)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
