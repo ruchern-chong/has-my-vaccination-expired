@@ -38,6 +38,11 @@ const Input = styled.input`
   border-radius: 8px;
 `;
 
+const ExpiryDate = styled.h2`
+  animation: heartBeat;
+  animation-duration: 1s;
+`;
+
 const IndexPage = ({ date, updateSecondDose }) => {
   const [expiryDate, setExpiryDate] = useState("2021-12-31");
   const todayDate = new Date().toISOString().split("T")[0];
@@ -66,6 +71,7 @@ const IndexPage = ({ date, updateSecondDose }) => {
 
     setExpiryDate(calculateExpiryDate(date));
   };
+
   return (
     <Layout>
       <Seo title="Am I Still Vaccinated?" />
@@ -87,7 +93,9 @@ const IndexPage = ({ date, updateSecondDose }) => {
           </Column>
           <Column>
             <h3>Your vaccination status will expire on</h3>
-            <h2>{dayjs(expiryDate).format("DD MMM YYYY")}</h2>
+            <ExpiryDate key={expiryDate}>
+              {dayjs(expiryDate).format("DD MMM YYYY")}
+            </ExpiryDate>
           </Column>
         </Row>
       </Container>
