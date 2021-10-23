@@ -1,6 +1,7 @@
-const { author, description } = require("./package.json")
+const { author, description } = require("./package.json");
 
 module.exports = {
+  pathPrefix: "/am-i-still-vaccinated",
   siteMetadata: {
     title: `Am I Still Vaccinated?`,
     description: description,
