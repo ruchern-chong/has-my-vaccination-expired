@@ -15,10 +15,14 @@ const StyledFooter = styled.footer`
   bottom: 0;
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 16px;
   color: #fff;
   background-color: ${theme.colours.primary};
   border-top: 1px solid #eee;
+
+  ${theme.media.md`
+    padding: 24px;
+  `}
 `;
 
 const LanguageSelector = styled.ul`
@@ -26,6 +30,7 @@ const LanguageSelector = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   padding: 0;
+  margin: 0;
 `;
 
 const LanguageItem = styled.li`
