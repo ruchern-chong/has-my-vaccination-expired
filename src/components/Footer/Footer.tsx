@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
+import { Column, Grid, Row } from '@noblitech/components/src/index';
 
 import { setLanguage } from '../../actions/settingsActions';
 
@@ -79,17 +80,23 @@ const Footer = ({ settings, setLanguage }) => {
 
   return (
     <StyledFooter>
-      <LanguageSelector>
-        {languages.map(({ lang, name }) => (
-          <LanguageItem
-            key={lang}
-            isActive={lang === i18n.language}
-            onClick={() => handleLanguageChange(lang)}
-          >
-            {name}
-          </LanguageItem>
-        ))}
-      </LanguageSelector>
+      <Grid>
+        <Row>
+          <Column>
+            <LanguageSelector>
+              {languages.map(({ lang, name }) => (
+                <LanguageItem
+                  key={lang}
+                  isActive={lang === i18n.language}
+                  onClick={() => handleLanguageChange(lang)}
+                >
+                  {name}
+                </LanguageItem>
+              ))}
+            </LanguageSelector>
+          </Column>
+        </Row>
+      </Grid>
     </StyledFooter>
   );
 };

@@ -1,44 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
+
+import { Column, Grid, Row } from '@noblitech/components/src';
 
 import theme from '../../theme';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `${theme.colours.primary}`,
-      marginBottom: `1.45rem`
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+const StyledHeader = styled.header`
+  background: ${theme.colours.primary};
+  padding: 16px;
+  margin-bottom: 24px;
+
+  ${theme.media.md`
+    padding: 24px;
+  `}
+`;
+
+const StyledTitle = styled.h2`
+  margin: 0;
+`;
+
+const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`;
+
+interface Props {
+  siteTitle: string;
+}
+
+const Header: FC<Props> = ({ siteTitle = '' }) => (
+  <StyledHeader>
+    <Grid>
+      <Row>
+        <Column>
+          <StyledTitle>
+            <StyledLink to="/">{siteTitle}</StyledLink>
+          </StyledTitle>
+        </Column>
+      </Row>
+    </Grid>
+  </StyledHeader>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-  siteTitle: ``
-};
 
 export default Header;

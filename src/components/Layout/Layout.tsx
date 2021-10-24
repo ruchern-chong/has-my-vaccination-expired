@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Footer from '../Footer';
 import Header from '../Header';
 
+import theme from '../../theme';
+
 import 'normalize.css';
 import './layout.css';
 import 'animate.css';
@@ -18,9 +20,13 @@ const Site = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  max-width: 960px;
   flex-grow: 1;
+  padding: 0 16px;
   margin: 0 auto;
+
+  ${theme.media.md`
+  padding: 0 24px;
+  `}
 `;
 
 const Layout = ({ children }) => {
