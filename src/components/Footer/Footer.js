@@ -14,7 +14,7 @@ const StyledFooter = styled.footer`
   bottom: 0;
   display: flex;
   align-items: center;
-  padding: 36px;
+  padding: 24px;
   color: #fff;
   background-color: #1d4886;
   border-top: 1px solid #eee;
@@ -24,6 +24,7 @@ const LanguageSelector = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding: 0;
 `;
 
 const LanguageItem = styled.li`
