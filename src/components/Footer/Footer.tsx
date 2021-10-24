@@ -11,7 +11,7 @@ import theme from '../../theme';
 
 const StyledFooter = styled.footer`
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
