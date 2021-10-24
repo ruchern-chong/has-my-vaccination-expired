@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { useTranslation } from 'react-i18next';
@@ -50,15 +50,23 @@ const LanguageItem = styled.li`
     `}
 `;
 
-const Footer = ({ setLanguage }) => {
+const Footer = ({ settings, setLanguage }) => {
   const { i18n } = useTranslation();
+
+  const { lang } = settings;
+
+  useEffect(() => {
+    if (lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang]);
 
   /**
    * Handle changing of language
    *
    * @param lang
    */
-  const handleLanguageChange = (lang = 'en') => {
+  const handleLanguageChange = (lang) => {
     setLanguage(lang);
 
     return i18n.changeLanguage(lang);
@@ -67,17 +75,15 @@ const Footer = ({ setLanguage }) => {
   return (
     <StyledFooter>
       <LanguageSelector>
-        {languages.map(({ lang, name }) => {
-          return (
-            <LanguageItem
-              key={lang}
-              isActive={lang === i18n.language}
-              onClick={() => handleLanguageChange(lang)}
-            >
-              {name}
-            </LanguageItem>
-          );
-        })}
+        {languages.map(({ lang, name }) => (
+          <LanguageItem
+            key={lang}
+            isActive={lang === i18n.language}
+            onClick={() => handleLanguageChange(lang)}
+          >
+            {name}
+          </LanguageItem>
+        ))}
       </LanguageSelector>
     </StyledFooter>
   );
