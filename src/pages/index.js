@@ -61,9 +61,9 @@ const IndexPage = ({ date, updateSecondDose }) => {
     if (date.dose?.second) {
       setExpiryDate(calculateExpiryDate(date.dose?.second));
     } else {
-      setExpiryDate(calculateExpiryDate(todayDate));
+      updateSecondDose(todayDate);
     }
-  }, []);
+  }, [date.dose?.second, todayDate, updateSecondDose]);
 
   const handleDateChange = (e) => {
     const date = e.target.value;
@@ -78,14 +78,20 @@ const IndexPage = ({ date, updateSecondDose }) => {
       <Container>
         <Row>
           <Column>
+            <h2>This applies to the Sinovac and Sinopharm vaccines only.</h2>
+          </Column>
+          <Column>
             <label htmlFor="date-second-dose">
-              <h3>When was your 2nd dose?</h3>
+              <h3>
+                When was your 2nd dose?
+                <br />
+                <small>(We do not store this data)</small>
+              </h3>
               <Input
                 type="date"
                 id="date-second-dose"
                 min="2021-06-18"
                 max={todayDate}
-                defaultValue={todayDate}
                 value={date.dose?.second}
                 onChange={handleDateChange}
               />
