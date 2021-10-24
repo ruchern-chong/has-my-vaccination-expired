@@ -36,6 +36,12 @@ const LanguageItem = styled.li`
   }
 
   ${({ isActive }) =>
+    isActive &&
+    css`
+      pointer-events: none;
+    `}
+
+  ${({ isActive }) =>
     !isActive &&
     css`
       opacity: 0.5;
