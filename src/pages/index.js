@@ -53,6 +53,9 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
+        "No affliation":
+          "This site is not affliated with the MOH, HSA and Multi-Ministry Task Force (MMTF). Please visit the respective websites for official information.",
+        "Inactivated vaccines only": "For Sinovac and Sinopharm vaccines ONLY",
         "When is your 2nd dose": "When is your 2nd dose?",
         "We do not store the date of your dose":
           "(We do not store the date of your dose)",
@@ -61,6 +64,9 @@ i18n.use(initReactI18next).init({
     },
     cn: {
       translation: {
+        "No affliation":
+          "这个网站与卫生部（MOH），卫生科学局（HSA）和抗疫跨部门工作小组没挂钩。如果您在寻找疫苗相关的咨询，请到各方的浏览站查询。谢谢！",
+        "Inactivated vaccines only": "仅适用于科兴和国药疫苗",
         "When is your 2nd dose": "请输入您的第二疫苗的日期",
         "We do not store the date of your dose":
           "（我们不会把您的疫苗日期存储这）",
@@ -112,7 +118,12 @@ const IndexPage = ({ date, settings, updateSecondDose }) => {
       <Container>
         <Row>
           <Column>
-            <h2>This applies to the Sinovac and Sinopharm vaccines only.</h2>
+            <p>
+              <em>{t("No affliation")}</em>
+            </p>
+          </Column>
+          <Column>
+            <h2>{t("Inactivated vaccines only")}</h2>
           </Column>
           <Column>
             <label htmlFor="date-second-dose">
