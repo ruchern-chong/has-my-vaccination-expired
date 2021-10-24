@@ -42,6 +42,7 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "babel-preset-gatsby": "^2.0.0",
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
