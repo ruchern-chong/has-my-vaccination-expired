@@ -28,7 +28,7 @@ module.exports = {
         name: `am-i-still-vaccinated`,
         short_name: `am-i-still-vaccinated`,
         start_url: `/`,
-        background_color: `#1D4886`,
+        background_color: `#008080`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },

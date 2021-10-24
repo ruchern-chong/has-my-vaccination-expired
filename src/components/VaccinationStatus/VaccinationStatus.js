@@ -6,6 +6,10 @@ import dayjs from "dayjs";
 import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
 
+import Grid from "../Grid";
+import Row from "../Row";
+import Column from "../Column";
+
 import { updateSecondDose } from "../../actions/datesActions";
 
 const isSameOrAfter = require("dayjs/plugin/isSameOrAfter");
@@ -13,19 +17,7 @@ const LocalizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(isSameOrAfter);
 dayjs.extend(LocalizedFormat);
 
-const Container = styled.main`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Row = styled.div`
-  width: auto;
-`;
-
-const Column = styled.div`
+const StyledGrid = styled(Grid)`
   text-align: center;
 `;
 
@@ -33,7 +25,6 @@ const Input = styled.input`
   width: 100%;
   font-size: 18px;
   padding: 16px;
-  margin-bottom: 24px;
   text-align: center;
   border-radius: 8px;
 `;
@@ -115,16 +106,20 @@ export const VaccinationStatus = ({ date, settings, updateSecondDose }) => {
   };
 
   return (
-    <Container>
-      <Row>
+    <StyledGrid>
+      <Row middle="sm" center="sm">
         <Column>
           <p>
             <em>{t("No affliation")}</em>
           </p>
         </Column>
+      </Row>
+      <Row>
         <Column>
           <h2>{t("Inactivated vaccines only")}</h2>
         </Column>
+      </Row>
+      <Row>
         <Column>
           <label htmlFor="date-second-dose">
             <h3>
@@ -142,6 +137,8 @@ export const VaccinationStatus = ({ date, settings, updateSecondDose }) => {
             />
           </label>
         </Column>
+      </Row>
+      <Row>
         <Column>
           <h3>{t("Vaccination will expire on")}</h3>
           <ExpiryDate key={expiryDate}>
@@ -149,7 +146,7 @@ export const VaccinationStatus = ({ date, settings, updateSecondDose }) => {
           </ExpiryDate>
         </Column>
       </Row>
-    </Container>
+    </StyledGrid>
   );
 };
 

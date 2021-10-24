@@ -2,10 +2,12 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
+import theme from "../theme";
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `#1D4886`,
+      background: `${theme.colours.primary}`,
       marginBottom: `1.45rem`,
     }}
   >

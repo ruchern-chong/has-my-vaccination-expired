@@ -39,6 +39,7 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "babel-preset-gatsby": "^2.0.0",
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
     "redux": "^4.1.1",

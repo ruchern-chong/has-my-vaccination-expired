@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { setLanguage } from "../../actions/settingsActions";
 
 import { languages } from "../../config";
+import theme from "../../theme";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -16,7 +17,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   padding: 24px;
   color: #fff;
-  background-color: #1d4886;
+  background-color: ${theme.colours.primary};
   border-top: 1px solid #eee;
 `;
 
