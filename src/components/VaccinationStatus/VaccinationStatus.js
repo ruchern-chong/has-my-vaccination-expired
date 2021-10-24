@@ -53,9 +53,9 @@ i18n.use(initReactI18next).init({
         'No affliation':
           '这个网站与卫生部（MOH），卫生科学局（HSA）和抗疫跨部门工作小组没挂钩。如果您在寻找疫苗相关的咨询，请到各方的浏览站查询。谢谢！',
         'Inactivated vaccines only': '仅适用于科兴和国药疫苗',
-        'When is your 2nd dose': '请输入您的第二疫苗的日期',
+        'When is your 2nd dose': '请输入您施打第二剂疫苗的日期',
         'We do not store the date of your dose':
-          '（我们不会把您的疫苗日期存储这）',
+          '（我们将不会储存您个人的疫苗接种日期）',
         'Vaccination will expire on': `您的疫苗有效期将在以下的日期成为无效`
       }
     }
