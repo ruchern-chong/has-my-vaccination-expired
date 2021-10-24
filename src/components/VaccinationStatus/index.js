@@ -1,1 +1,1 @@
-export { default } from "./VaccinationStatus";
+export { default } from './VaccinationStatus';

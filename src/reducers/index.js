@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import date from "./dateReducer";
-import settings from "./settingsReducer";
+import date from './dateReducer';
+import settings from './settingsReducer';
 
 const appReducer = combineReducers({ date, settings });
 

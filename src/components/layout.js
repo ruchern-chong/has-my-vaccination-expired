@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import Footer from "./Footer";
-import Header from "./header";
+import Footer from './Footer';
+import Header from './header';
 
-import "normalize.css";
-import "./layout.css";
-import "animate.css";
+import 'normalize.css';
+import './layout.css';
+import 'animate.css';
 
 const Site = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;

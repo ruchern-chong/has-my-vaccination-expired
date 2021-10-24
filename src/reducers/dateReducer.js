@@ -1,20 +1,20 @@
 const initialState = {
-  dose: {},
+  dose: {}
 };
 
 const dateReducer = (state = initialState, action) => {
   const { type } = action;
 
   switch (type) {
-    case "UPDATE_FIRST_DOSE":
+    case 'UPDATE_FIRST_DOSE':
       return {
         ...state,
-        dose: { ...state.dose, first: action.payload },
+        dose: { ...state.dose, first: action.payload }
       };
-    case "UPDATE_SECOND_DOSE":
+    case 'UPDATE_SECOND_DOSE':
       return {
         ...state,
-        dose: { ...state.dose, second: action.payload },
+        dose: { ...state.dose, second: action.payload }
       };
     default:
       return state;

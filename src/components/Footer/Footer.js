@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-import { useTranslation } from "react-i18next";
-import { connect } from "react-redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
-import { setLanguage } from "../../actions/settingsActions";
+import { setLanguage } from '../../actions/settingsActions';
 
-import { languages } from "../../config";
-import theme from "../../theme";
+import { languages } from '../../config';
+import theme from '../../theme';
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -58,7 +58,7 @@ const Footer = ({ setLanguage }) => {
    *
    * @param lang
    */
-  const handleLanguageChange = (lang = "en") => {
+  const handleLanguageChange = (lang = 'en') => {
     setLanguage(lang);
 
     return i18n.changeLanguage(lang);
@@ -85,17 +85,17 @@ const Footer = ({ setLanguage }) => {
 
 Footer.propTypes = {
   settings: PropTypes.object,
-  setLanguage: PropTypes.func,
+  setLanguage: PropTypes.func
 };
 
 /* istanbul ignore next */
 const mapStateToProps = (state) => ({
-  settings: state.settings,
+  settings: state.settings
 });
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
-  setLanguage: (lang) => dispatch(setLanguage(lang)),
+  setLanguage: (lang) => dispatch(setLanguage(lang))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

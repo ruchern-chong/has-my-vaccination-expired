@@ -1,22 +1,22 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { applyMiddleware, compose, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { createLogger } from "redux-logger";
+import { createLogger } from 'redux-logger';
 
-import rootReducer from "../reducers";
+import rootReducer from '../reducers';
 
 const initialState = {};
 const middlewares = [];
 
 const persistConfig = {
-  key: "root",
-  storage,
+  key: 'root',
+  storage
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const logger = createLogger({
-  collapsed: true,
+  collapsed: true
 });
 
 if (process.env.NODE_ENV === `development`) {
