@@ -55,7 +55,7 @@ i18n.use(initReactI18next).init({
         'Inactivated vaccines only': '仅适用于科兴和国药疫苗',
         'When is your 2nd dose': '请输入您接种第二剂疫苗的日期',
         'We do not store the date of your dose':
-          '（我们将不会储存您个人的疫苗接种日期）',
+          '（我们不会储存您个人的疫苗接种日期）',
         'Vaccination will expire on': `您的疫苗接种状态的有效期，将于以下显示的日期起失效。`
       }
     }
