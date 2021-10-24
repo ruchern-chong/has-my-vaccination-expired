@@ -39,7 +39,7 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        'No affliation':
+        'No affiliation':
           'This site is not affliated with the MOH, HSA and Multi-Ministry Task Force (MMTF). Please visit the respective websites for official information.',
         'Inactivated vaccines only': 'For Sinovac and Sinopharm vaccines ONLY',
         'When is your 2nd dose': 'When is your 2nd dose?',
@@ -50,7 +50,7 @@ i18n.use(initReactI18next).init({
     },
     cn: {
       translation: {
-        'No affliation':
+        'No affiliation':
           '这个网站与卫生部（MOH），卫生科学局（HSA）和抗疫跨部门工作小组没挂钩。如果您在寻找疫苗相关的咨询，请到各方的浏览站查询。谢谢！',
         'Inactivated vaccines only': '仅适用于科兴和国药疫苗',
         'When is your 2nd dose': '请输入您施打第二剂疫苗的日期',
@@ -107,7 +107,7 @@ export const VaccinationStatus = ({ date, settings, updateSecondDose }) => {
       <Row middle="sm" center="sm">
         <Column>
           <p>
-            <em>{t('No affliation')}</em>
+            <em>{t('No affiliation')}</em>
           </p>
         </Column>
       </Row>

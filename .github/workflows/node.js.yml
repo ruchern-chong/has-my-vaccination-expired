@@ -26,8 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: echo //npm.pkg.github.com/:_authToken=$NPM_AUTH_TOKEN >> .npmrc
-    - run: yarn install
+    - name: Install packages
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      run: |
+        echo //npm.pkg.github.com/:_authToken=$NPM_AUTH_TOKEN >> .npmrc
+        yarn install
     - name: Setup Git credentials
       run: |
         git config user.email "dev@ruchern.xyz"
