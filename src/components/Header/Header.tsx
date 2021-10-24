@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-import theme from '../theme';
+import theme from '../../theme';
 
 const Header = ({ siteTitle }) => (
   <header
