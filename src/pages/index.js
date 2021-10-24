@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import i18n from "i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import { connect } from "react-redux";
 import dayjs from "dayjs";
 
@@ -43,7 +45,37 @@ const ExpiryDate = styled.h2`
   animation-duration: 1s;
 `;
 
-const IndexPage = ({ date, updateSecondDose }) => {
+const Note = styled.small`
+  color: #ff0000;
+`;
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: {
+        "When is your 2nd dose": "When is your 2nd dose?",
+        "We do not store the date of your dose":
+          "(We do not store the date of your dose)",
+        "Vaccination will expire on": `Your vaccination status will expire on`,
+      },
+    },
+    cn: {
+      translation: {
+        "When is your 2nd dose": "请输入您的第二疫苗的日期",
+        "We do not store the date of your dose":
+          "（我们不会把您的疫苗日期存储这）",
+        "Vaccination will expire on": `您的疫苗有效期将在以下的日期成为无效`,
+      },
+    },
+  },
+  fallbackLng: "en",
+});
+
+const IndexPage = ({ date, settings, updateSecondDose }) => {
+  const { t } = useTranslation();
+
+  const { lang } = settings;
+
   const [expiryDate, setExpiryDate] = useState("2021-12-31");
   const todayDate = new Date().toISOString().split("T")[0];
 
@@ -58,12 +90,14 @@ const IndexPage = ({ date, updateSecondDose }) => {
   };
 
   useEffect(() => {
+    i18n.changeLanguage(lang);
+
     if (date.dose?.second) {
       setExpiryDate(calculateExpiryDate(date.dose?.second));
     } else {
       updateSecondDose(todayDate);
     }
-  }, [date.dose?.second, todayDate, updateSecondDose]);
+  }, [date.dose?.second, lang, todayDate, updateSecondDose]);
 
   const handleDateChange = (e) => {
     const date = e.target.value;
@@ -83,9 +117,9 @@ const IndexPage = ({ date, updateSecondDose }) => {
           <Column>
             <label htmlFor="date-second-dose">
               <h3>
-                When was your 2nd dose?
+                {t("When is your 2nd dose")}
                 <br />
-                <small>(We do not store this data)</small>
+                <Note>{t("We do not store the date of your dose")}</Note>
               </h3>
               <Input
                 type="date"
@@ -98,7 +132,7 @@ const IndexPage = ({ date, updateSecondDose }) => {
             </label>
           </Column>
           <Column>
-            <h3>Your vaccination status will expire on</h3>
+            <h3>{t("Vaccination will expire on")}</h3>
             <ExpiryDate key={expiryDate}>
               {dayjs(expiryDate).format("DD MMM YYYY")}
             </ExpiryDate>
@@ -110,13 +144,10 @@ const IndexPage = ({ date, updateSecondDose }) => {
 };
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => {
-  const { date } = state;
-
-  return {
-    date: date,
-  };
-};
+const mapStateToProps = ({ date, settings }) => ({
+  date,
+  settings,
+});
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({

@@ -10,7 +10,7 @@ const initialState = {};
 const middlewares = [];
 
 const persistConfig = {
-  key: "settings",
+  key: "root",
   storage,
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
