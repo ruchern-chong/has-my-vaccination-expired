@@ -14,7 +14,7 @@ import 'animate.css';
 
 const Site = styled.div`
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 `;
 
@@ -25,7 +25,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   ${theme.media.md`
-  padding: 0 24px;
+    padding: 0 24px;
   `}
 `;
 
