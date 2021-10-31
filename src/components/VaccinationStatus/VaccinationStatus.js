@@ -72,7 +72,7 @@ export const VaccinationStatus = ({ date, settings, updateSecondDose }) => {
   const todayDate = new Date().toISOString().split('T')[0];
 
   const calculateExpiryDate = (date) => {
-    const theoreticalExpiryDate = dayjs(date).add(4, 'M');
+    const theoreticalExpiryDate = dayjs(date).add(90, 'D');
 
     if (theoreticalExpiryDate.isSameOrAfter(dayjs('2021-12-31'))) {
       return theoreticalExpiryDate;
