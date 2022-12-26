@@ -1,13 +1,13 @@
 {
-  "name": "am-i-still-vaccinated",
+  "name": "has-my-vaccination-expired",
   "description": "A platform for inactivated vaccine users in Singapore",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Ru Chern Chong <dev@ruchern.xyz>",
+  "author": "Ru Chern Chong <hello@ruchern.xyz>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/$GH_USERNAME/am-i-still-vaccinated.git",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/$GH_USERNAME/has-my-vaccination-expired.git",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
