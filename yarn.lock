@@ -1517,12 +1517,12 @@
   dependencies:
     eslint-scope "5.1.1"
 
-"@noblitech/components@^0.2.1":
-  version "0.2.1"
-  resolved "https://npm.pkg.github.com/download/@Noblitech/components/0.2.1/7aecfec93fa765f9b250806004c84f3a95660d3f#7aecfec93fa765f9b250806004c84f3a95660d3f"
-  integrity sha512-LLRA9MoqD2mVGzx4KgbdxE3H6/Lm8w6iC0EryQke4lD6yHodd+Ar8yhhfQiNtOwFC/B3ulVTXaX4fRPK7NpyjA==
+"@noblitech/components@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@Noblitech/components/0.3.0/fc2c949428d52cd919b6d280ff92bc7bcde6c84c#fc2c949428d52cd919b6d280ff92bc7bcde6c84c"
+  integrity sha512-9oE66zYXfifwYssVtMhTh4QT3KWgcvxu9VUtkeP0Vdf2iiYXIRYGhSNX1D7N5C8HPnrONUtLUmjQlnSe/IxkSw==
   dependencies:
-    "@types/react" "17.0.32"
+    "@types/react" "18.0.26"
     identity-obj-proxy "3.0.0"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -2206,19 +2206,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react@*":
+"@types/react@*", "@types/react@18.0.26":
   version "18.0.26"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.26.tgz#8ad59fc01fef8eaf5c74f4ea392621749f0b7917"
   integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@17.0.32":
-  version "17.0.32"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.32.tgz#89a161286bbe2325d4d516420a27364a324909f4"
-  integrity sha512-hAm1pmwA3oZWbkB985RFwNvBRMG0F3KWSiC4/hNmanigKZMiKQoH5Q6etNw8HIDztTGfvXyOjPvdNnvBUCuaPg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
